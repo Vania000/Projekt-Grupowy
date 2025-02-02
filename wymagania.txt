@@ -1,1 +1,15 @@
+Instrukcja instalacji środowiska i pakietów:
+
+1. Utwórz środowisko wirtualne:
+    python -m venv venv
+
+2. Aktywuj środowisko wirtualne:
+   - W Git Bash (Windows): source venv/Scripts/activate
+    - W CMD (Windows): venv\Scripts\activate
+    - W Linux/macOS: source venv/bin/activate
+
+3. Zainstaluj wymagane pakiety:
+   pip install -r requirements.txt
+
+Wymagane pakiety:
 pygame==2.6.1
