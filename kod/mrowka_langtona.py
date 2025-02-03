@@ -73,3 +73,13 @@ def resize_board():
     elif ant_col >= n:
         board = np.hstack([board, np.zeros((m, 1), dtype=int)])
         n += 1
+        def move_ant():
+    """Ruch mrówki w zależności od tego, na jakim polu stoi"""
+    global ant_row, ant_col, direction
+
+    if board[ant_row][ant_col] == 0:
+        direction = (direction - 1) % 4
+        board[ant_row][ant_col] = 1
+    else:
+        direction = (direction + 1) % 4
+        board[ant_row][ant_col] = 0
