@@ -39,3 +39,16 @@ RED = '\033[91m'
 RESET = '\033[0m'
 BLACK = '\033[48;5;16m'
 WHITE = '\033[48;5;15m'
+ef print_board():
+    """Funkcja do wyświetlania planszy w terminalu z czarnymi i białymi polami"""
+    os.system('clear')
+    for row in range(m):
+        for col in range(n):
+            if row == ant_row and col == ant_col:
+                print(f"{RED}🟥{RESET}", end="")
+            elif board[row][col] == 1:
+                print(f"{BLACK}  {RESET}", end="")
+            else:
+                print(f"{WHITE}  {RESET}", end="")
+        print()
+    print(f"Rozmiar planszy: {m}x{n}, Krok: {steps} - Ant position: ({ant_row}, {ant_col})")
