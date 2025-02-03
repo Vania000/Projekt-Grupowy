@@ -39,7 +39,7 @@ RED = '\033[91m'
 RESET = '\033[0m'
 BLACK = '\033[48;5;16m'
 WHITE = '\033[48;5;15m'
-ef print_board():
+def print_board():
     """Funkcja do wyświetlania planszy w terminalu z czarnymi i białymi polami"""
     os.system('clear')
     for row in range(m):
