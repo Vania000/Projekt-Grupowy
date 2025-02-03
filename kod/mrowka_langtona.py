@@ -52,3 +52,24 @@ ef print_board():
                 print(f"{WHITE}  {RESET}", end="")
         print()
     print(f"Rozmiar planszy: {m}x{n}, Krok: {steps} - Ant position: ({ant_row}, {ant_col})")
+def resize_board():
+    """Funkcja do powiększenia planszy, jeśli mrówka zacznie przekraczać jej krawędzie"""
+    global board, m, n, ant_row, ant_col
+
+    if ant_row < 0:
+        board = np.vstack([np.zeros((1, n), dtype=int), board])
+        m += 1
+        ant_row = 0
+
+    elif ant_row >= m:
+        board = np.vstack([board, np.zeros((1, n), dtype=int)])
+        m += 1
+
+    if ant_col < 0:
+        board = np.hstack([np.zeros((m, 1), dtype=int), board])
+        n += 1
+        ant_col = 0
+
+    elif ant_col >= n:
+        board = np.hstack([board, np.zeros((m, 1), dtype=int)])
+        n += 1
