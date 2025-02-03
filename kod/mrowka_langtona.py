@@ -1,4 +1,6 @@
-
+import numpy as np
+import time
+import os
 
 def poprawna_wartosc(prompt):
     """
@@ -21,3 +23,19 @@ def poprawna_wartosc(prompt):
 m = poprawna_wartosc("Podaj liczbę wierszy: ")
 n = poprawna_wartosc("Podaj liczbę kolumn: ")
 steps = poprawna_wartosc("Podaj liczbę iteracji: ")
+
+"""Tworzenie planszy"""
+board = np.zeros((m, n), dtype=int)
+
+"""Pozycja początkowa mrówki"""
+ant_row = m // 2
+ant_col = n // 2
+
+"""Kierunki ruchu mrówki"""
+directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+direction = 0
+
+RED = '\033[91m'
+RESET = '\033[0m'
+BLACK = '\033[48;5;16m'
+WHITE = '\033[48;5;15m'
