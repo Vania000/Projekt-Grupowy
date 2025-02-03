@@ -1,0 +1,17 @@
+Instrukcja instalacji środowiska i pakietów:
+
+1. Wybrać ścieżkę do projektu:
+   "cd (ścieżka do projektu)"
+
+2. Utwórz środowisko wirtualne:
+   "python -m venv venv"
+
+2. Aktywuj środowisko wirtualne:
+   - Git Bash (Windows): "source venv/Scripts/activate"
+   - Linux/macOS: 	 "source venv/bin/activate"
+
+3. Zainstaluj wymagane pakiety:
+   "pip install -r wymagania.txt"
+
+4. Aktywuj kod:
+   "python kod/mrowka_langtona.py
