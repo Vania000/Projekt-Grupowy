@@ -83,3 +83,23 @@ def resize_board():
     else:
         direction = (direction + 1) % 4
         board[ant_row][ant_col] = 0
+ if directions[direction] == (0, 1):
+        ant_col += 1
+    elif directions[direction] == (1, 0):
+        ant_row += 1
+    elif directions[direction] == (0, -1):
+        ant_col -= 1
+    elif directions[direction] == (-1, 0):
+        ant_row -= 1
+
+    resize_board()
+
+def langtons_ant():
+    """Symulacja ruchu mrówki przez zadany czas"""
+    for _ in range(steps):
+        move_ant()
+        print_board()
+        time.sleep(0.05)
+
+if __name__ == "__main__":
+    langtons_ant()
