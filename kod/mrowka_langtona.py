@@ -45,7 +45,7 @@ def print_board():
     for row in range(m):
         for col in range(n):
             if row == ant_row and col == ant_col:
-                print(f"{RED}X{RESET}", end="")
+                print(f"{RED}🟥{RESET}", end="")
             elif board[row][col] == 1:
                 print(f"{BLACK}  {RESET}", end="")
             else:
