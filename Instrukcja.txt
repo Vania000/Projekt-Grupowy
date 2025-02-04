@@ -1,4 +1,5 @@
 Instrukcja instalacji środowiska i pakietów:
+Zalecana wersja Pythona: 3.13.1
 
 1. Wybrać ścieżkę do projektu:
    "cd (ścieżka do projektu)"

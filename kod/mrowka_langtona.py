@@ -1,6 +1,10 @@
 import numpy as np
 import time
 import os
+import sys
+
+# Resetowanie konsoli w Git Bashu
+os.system("clear")
 
 def poprawna_wartosc(prompt):
     """
@@ -8,7 +12,6 @@ def poprawna_wartosc(prompt):
     Podaj liczbę wierszy: -1
     Błąd: Podaj liczbę naturalną większą od 0.
     Podaj liczbę wierszy: 25
-    Liczba iteracji dowolna, liczba kolumn i wierszy zalecana od 10 do 50 (by uniknąć problemów z wyświetlaniem)
     """
     while True:
         try:
@@ -20,9 +23,11 @@ def poprawna_wartosc(prompt):
         except ValueError:
             print("Błąd: Podana wartość nie jest liczbą całkowitą.")
 
-m = poprawna_wartosc("Podaj liczbę wierszy: ")
-n = poprawna_wartosc("Podaj liczbę kolumn: ")
+m = poprawna_wartosc("Podaj liczbę wierszy (zalecana od 1 do 45): ")
+n = poprawna_wartosc("Podaj liczbę kolumn (zalecana od 1 do 45): ")
 steps = poprawna_wartosc("Podaj liczbę iteracji: ")
+
+os.system("clear")
 
 """Tworzenie planszy"""
 board = np.zeros((m, n), dtype=int)
@@ -39,19 +44,24 @@ RED = '\033[91m'
 RESET = '\033[0m'
 BLACK = '\033[48;5;16m'
 WHITE = '\033[48;5;15m'
+
+
 def print_board():
-    """Funkcja do wyświetlania planszy w terminalu z czarnymi i białymi polami"""
-    os.system('clear')
+    """Efektywne rysowanie planszy bez migotania"""
+    print("\033[H", end="")  # Przesunięcie kursora na początek ekranu
+    
     for row in range(m):
         for col in range(n):
             if row == ant_row and col == ant_col:
-                print(f"{RED}🟥{RESET}", end="")
+                print(f"\033[101m  \033[0m", end="")  # 🟥 Mrówka na czerwonym tle
             elif board[row][col] == 1:
-                print(f"{BLACK}  {RESET}", end="")
+                print(f"{BLACK}  {RESET}", end="")  # ⬛ Czarny kwadrat
             else:
-                print(f"{WHITE}  {RESET}", end="")
+                print(f"{WHITE}  {RESET}", end="")  # ⬜ Biały kwadrat
         print()
-    print(f"Rozmiar planszy: {m}x{n}, Krok: {steps} - Ant position: ({ant_row}, {ant_col})")
+    
+
+
 def resize_board():
     """Funkcja do powiększenia planszy, jeśli mrówka zacznie przekraczać jej krawędzie"""
     global board, m, n, ant_row, ant_col
